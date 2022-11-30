@@ -29,7 +29,9 @@ Each of the questions/tasks below can be answered using a `SELECT` query. When y
 4) Find the division code for the Bundesliga. Use that code to find out how many matches Freiburg have played in the Bundesliga since the data started being collected.
 
 ```sql
-<!-- Copy solution here -->
+<!SELECT code FROM divisions WHERE name = 'Bundesliga';
+SELECT COUNT(*) FROM matches WHERE division_code = 'D1';
+
 
 
 ```
