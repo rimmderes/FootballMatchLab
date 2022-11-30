@@ -13,7 +13,7 @@ Each of the questions/tasks below can be answered using a `SELECT` query. When y
 2) Find all the matches featuring Barcelona.
 
 ```sql
-<!-- Copy solution here -->
+<!SELECT * FROM matches WHERE hometeam = 'Barcelona' OR awayteam = 'Barcelona'
 
 
 ```
