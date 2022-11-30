@@ -5,7 +5,7 @@ Each of the questions/tasks below can be answered using a `SELECT` query. When y
 1) Find all the matches from 2017.
 
 ```sql
-< SELECT * FROM matches WHERE season = 2017;
+SELECT * FROM matches WHERE season = 2017;
 
 
 ```
@@ -13,7 +13,7 @@ Each of the questions/tasks below can be answered using a `SELECT` query. When y
 2) Find all the matches featuring Barcelona.
 
 ```sql
-< SELECT * FROM matches WHERE hometeam = 'Barcelona' OR awayteam = 'Barcelona'
+SELECT * FROM matches WHERE hometeam = 'Barcelona' OR awayteam = 'Barcelona'
 
 
 ```
@@ -21,7 +21,7 @@ Each of the questions/tasks below can be answered using a `SELECT` query. When y
 3) What are the names of the Scottish divisions included?
 
 ```sql
-< SELECT name FROM divisions WHERE country = 'Scotland';
+SELECT name FROM divisions WHERE country = 'Scotland';
 
 
 ```
@@ -29,8 +29,8 @@ Each of the questions/tasks below can be answered using a `SELECT` query. When y
 4) Find the division code for the Bundesliga. Use that code to find out how many matches Freiburg have played in the Bundesliga since the data started being collected.
 
 ```sql
-< SELECT code FROM divisions WHERE name = 'Bundesliga';
-SELECT COUNT(*) FROM matches WHERE division_code = 'D1';
+SELECT code FROM divisions WHERE name = 'Bundesliga';
+SELECT COUNT(*) FROM matches WHERE division_code = 'D1' AND (hometeam = 'Freiburg' OR awayteam = 'Freiburg');
 
 
 
@@ -39,7 +39,7 @@ SELECT COUNT(*) FROM matches WHERE division_code = 'D1';
 5) Find the unique names of the teams which include the word "City" in their name (as entered in the database)
 
 ```sql
-<SELECT hometeam, awayteam FROM matches WHERE hometeam LIKE '%City%' OR awayteam LIKE '%City%';
+SELECT DISTINCT hometeam FROM matches WHERE hometeam LIKE '%City%';
 
 
 ```
@@ -47,15 +47,15 @@ SELECT COUNT(*) FROM matches WHERE division_code = 'D1';
 6) How many different teams have played in matches recorded in a French division?
 
 ```sql
-<!-- Copy solution here -->
-
+SELECT code FROM divisions WHERE country = 'France';
+SELECT COUNT(DISTINCT hometeam) FROM matches WHERE division_code = 'F1' OR division code = 'F2';
 
 ```
 
 7) Have Huddersfield played Swansea in the period covered?
 
 ```sql
-<!-- Copy solution here -->
+
 
 
 ```
