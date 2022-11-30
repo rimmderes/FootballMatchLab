@@ -23,16 +23,19 @@ SELECT * FROM matches WHERE hometeam = 'Barcelona' OR awayteam = 'Barcelona'
 ```sql
 SELECT name FROM divisions WHERE country = 'Scotland';
 
+Scottish Premiership
+Scottish Championship
+Scottish League One
 
 ```
 
 4) Find the division code for the Bundesliga. Use that code to find out how many matches Freiburg have played in the Bundesliga since the data started being collected.
 
 ```sql
-SELECT code FROM divisions WHERE name = 'Bundesliga';
+SELECT code FROM divisions WHERE name = 'Bundesliga'; = D1
 SELECT COUNT(*) FROM matches WHERE division_code = 'D1' AND (hometeam = 'Freiburg' OR awayteam = 'Freiburg');
 
-
+374
 
 ```
 
@@ -41,14 +44,20 @@ SELECT COUNT(*) FROM matches WHERE division_code = 'D1' AND (hometeam = 'Freibur
 ```sql
 SELECT DISTINCT hometeam FROM matches WHERE hometeam LIKE '%City%';
 
+Bath City
+Man City
+Edinburgh City
+Bristol City
 
 ```
 
 6) How many different teams have played in matches recorded in a French division?
 
 ```sql
-SELECT code FROM divisions WHERE country = 'France';
+SELECT code FROM divisions WHERE country = 'France'; = F1 and F2
 SELECT COUNT(DISTINCT hometeam) FROM matches WHERE division_code = 'F1' OR division_code = 'F2';
+
+61
 
 ```
 
@@ -58,21 +67,27 @@ SELECT COUNT(DISTINCT hometeam) FROM matches WHERE division_code = 'F1' OR divis
 
 SELECT hometeam, awayteam FROM matches WHERE hometeam = 'Huddersfield' AND awayteam = 'Swansea' OR hometeam = 'Swansea' AND awayteam = 'Huddersfield';
 
+YES
+
 ```
 
 8) How many draws were there in the Eredivisie between 2010 and 2015?
 
 ```sql
-<!-- Copy solution here -->
+< SELECT code FROM divisions WHERE name = 'Eredivisie';
+SELECT COUNT(*) FROM matches WHERE division_code = 'N1' AND ftr = 'D' AND season BETWEEN '2010' AND '2015';
 
+431
 
 ```
 
 9) Select the matches played in the Premier League in order of total goals scored from highest to lowest. Where there is a tie the match with more home goals should come first.
 
 ```sql
-<!-- Copy solution here -->
+SELECT code FROM divisions WHERE name = 'Premier League'; = E0
+SELECT hometeam, awayteam, fthg, ftag FROM matches WHERE  division_code = 'E0' ORDER BY fthg + ftag DESC;
 
+Didn't know how to answer the second part of the question due to wording.
 
 ```
 
