@@ -48,7 +48,7 @@ SELECT DISTINCT hometeam FROM matches WHERE hometeam LIKE '%City%';
 
 ```sql
 SELECT code FROM divisions WHERE country = 'France';
-SELECT COUNT(DISTINCT hometeam) FROM matches WHERE division_code = 'F1' OR division code = 'F2';
+SELECT COUNT(DISTINCT hometeam) FROM matches WHERE division_code = 'F1' OR division_code = 'F2';
 
 ```
 
@@ -56,7 +56,7 @@ SELECT COUNT(DISTINCT hometeam) FROM matches WHERE division_code = 'F1' OR divis
 
 ```sql
 
-
+SELECT hometeam, awayteam FROM matches WHERE hometeam = 'Huddersfield' AND awayteam = 'Swansea' OR hometeam = 'Swansea' AND awayteam = 'Huddersfield';
 
 ```
 
